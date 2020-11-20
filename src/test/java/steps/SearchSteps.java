@@ -1,7 +1,9 @@
 package steps;
 
-import cucumber.api.java.en.Given;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import model.SearchItem;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,13 +24,13 @@ public class SearchSteps{
     private WikiMainPage wikiMainPage;
     private SearchItem searchItem;
     
-    @cucumber.api.java.en.Given("Keyword for search is {string}")
+    @Given("Keyword for search is {string}")
     public void searchKeywordIsString(String keyword) {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/webdrivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/webdrivers/chromedriver");
         searchItem = new SearchItem(keyword);
     }
 
-    @cucumber.api.java.en.When("User does search")
+    @When("User does search")
     public void search() {
         driver = new ChromeDriver();
         driver.get(WIKI_URL);
@@ -37,7 +39,7 @@ public class SearchSteps{
         searchPage = new WikiSearchPage(driver);
     }
 
-    @cucumber.api.java.en.Then("Wiki page {string} is on the first page")
+    @Then("Wiki page {string} is on the first page")
     public void assertSearchResult(String result) {
         assertThat(String.format("There are no results for search string '%s' on first search page", result),
                 searchPage.getResultLinks(), 

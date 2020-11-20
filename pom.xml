@@ -17,7 +17,7 @@
         <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>
         <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
         <hamcrest.version>2.1</hamcrest.version>
-        <cucumber.version>4.7.1</cucumber.version>
+        <cucumber.version>6.8.1</cucumber.version>
         <allure.cucumber.version>2.12.1</allure.cucumber.version>
     </properties>
     <build>
