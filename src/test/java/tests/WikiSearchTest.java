@@ -6,8 +6,8 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         features = {"classpath:features"},
         glue = "steps",
-        plugin = { "pretty", "html:target/cucumber-reports",
-                "json:target/cucumber-reports"}
+        plugin = { "pretty", "html:target/cucumber.html",
+                "json:target/cucumber.json"}
 )
 public class WikiSearchTest extends AbstractTestNGCucumberTests {
 }
