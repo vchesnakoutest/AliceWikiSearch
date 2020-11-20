@@ -4,7 +4,6 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import model.SearchItem;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -22,12 +21,12 @@ public class SearchSteps{
     private WikiSearchPage searchPage;
     private WebDriver driver;
     private WikiMainPage wikiMainPage;
-    private SearchItem searchItem;
+    private String searchItem;
     
     @Given("Keyword for search is {string}")
     public void searchKeywordIsString(String keyword) {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/webdrivers/chromedriver");
-        searchItem = new SearchItem(keyword);
+        searchItem = keyword;
     }
 
     @When("User does search")
@@ -35,7 +34,7 @@ public class SearchSteps{
         driver = new ChromeDriver();
         driver.get(WIKI_URL);
         wikiMainPage = new WikiMainPage(driver);
-        wikiMainPage.searchByKeyword(searchItem.getSearchString());
+        wikiMainPage.searchByKeyword(searchItem);
         searchPage = new WikiSearchPage(driver);
     }
 
