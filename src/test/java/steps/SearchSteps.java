@@ -6,6 +6,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -27,7 +28,7 @@ public class SearchSteps {
 
     @Before
     public void init() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/webdrivers/chromedriver");
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
     }
 
